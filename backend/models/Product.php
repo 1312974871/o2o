@@ -4,41 +4,14 @@ namespace app\models;
 
 use Yii;
 
-/**
- * This is the model class for table "mj_product".
- *
- * @property string $id
- * @property string $name
- * @property string $price
- * @property string $curr_price
- * @property string $business_type
- * @property integer $provider_id
- * @property string $image
- * @property integer $img_id
- * @property string $image_id
- * @property integer $object_img_id
- * @property integer $sort
- * @property string $img_alt
- * @property integer $start_time
- * @property integer $end_time
- * @property integer $time_limit
- * @property integer $status
- * @property integer $created
- * @property integer $upid
- */
 class Product extends \yii\db\ActiveRecord
 {
-    /**
-     * @inheritdoc
-     */
+
     public static function tableName()
     {
         return 'mj_product';
     }
 
-    /**
-     * @inheritdoc
-     */
     public function rules()
     {
         return [
@@ -51,9 +24,6 @@ class Product extends \yii\db\ActiveRecord
         ];
     }
 
-    /**
-     * @inheritdoc
-     */
     public function attributeLabels()
     {
         return [

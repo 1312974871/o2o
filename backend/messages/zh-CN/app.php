@@ -61,7 +61,9 @@ return [
     'Remember Me' => '自动登录',
     'Email' => '电子邮箱',
     'Auth Role' => '角色',
+    "Login Time"=>"登录时间",
     'Status' => '状态',
+    "Level"=>"等级",
     'Created At' => '创建时间',
     'Updated At' => '更新时间',
     'Created By' => '创建用户',
@@ -293,5 +295,9 @@ return [
     "TYPE_NOWORKING"=>"非作业部",
 
     "Company"=>"机构",
+    "Server Station"=>"网点",
+    "Department"=>"部门",
+
+    "Worker No"=>"工号",
 
 ];
