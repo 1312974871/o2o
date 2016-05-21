@@ -29,7 +29,6 @@ class DepartmentController extends Controller
         $dataProvider = new ActiveDataProvider([
             'query' => Department::find(),
         ]);
-
         return $this->render('index', [
             'dataProvider' => $dataProvider,
         ]);

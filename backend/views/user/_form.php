@@ -31,9 +31,8 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'company_id')->dropDownList(ArrayHelper::map(Company::find()->all(), "id", "name")) ?>
 
-    <?= $form->field($model, 'server_station_id')->textInput() ?>
-
-    <?= $form->field($model, 'department_id')->textInput() ?>
+    <?= $form->field($model, 'server_station_id')->dropDownList(["0"=>"请选择"]) ?>
+    <?= $form->field($model, 'department_id')->dropDownList(ArrayHelper::map(\app\models\Department::find()->where(["status"=>$model::STATUS_ACTIVE])->all(), "id", "name")) ?>
 
     <?= $form->field($model, 'level')->textInput() ?>
 
@@ -56,3 +55,28 @@ use yii\widgets\ActiveForm;
     <?php ActiveForm::end(); ?>
 
 </div>
+<form action="<?= Yii::$app->urlManager->createUrl(["server-station/json","company_id"=>$model->company_id])?>" id="form_getServerStationes" method="post"><input type="hidden" name="company_id"></form>
+<?php
+
+$js = <<<JS
+jQuery(function(){
+    var company_id = $("#user-company_id").val();
+    if(company_id != ""){
+        getServerStationes();
+    }
+   $("#user-company_id").on("change",function(){
+        getServerStationes();
+   }); 
+});
+function getServerStationes(){
+    $.post($("#form_getServerStationes").attr("action"),null,function(res){
+        var str = "";
+        $.each(res,function(i,v){
+            str += '<option value='+i+'>'+v+'</option>';
+        });
+        $("#user-server_station_id").html(str);
+    });
+}
+JS;
+$this->registerJs($js);
+?>
