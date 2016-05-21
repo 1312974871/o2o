@@ -51,8 +51,8 @@ class User extends \common\models\User
     public function scenarios(){
         return [
             "change-password"=>["password","repassword"],
-            "create-user"=>['username', 'worker_no', 'name', 'mobile', 'email', "type","level",'company_id', 'server_station_id', 'department_id', 'img_id', 'status'],
-            "update-user"=>['username', 'worker_no', 'name', 'mobile', 'email', "type","level",'company_id', 'server_station_id', 'department_id', 'img_id', 'status']
+            "create-user"=>['username', 'worker_no', 'name', 'mobile', 'email', "type","level",'company_id', 'server_station_id', 'department_id', 'img_id', 'status', 'fix', 'clean', 'install'],
+            "update-user"=>['username', 'worker_no', 'name', 'mobile', 'email', "type","level",'company_id', 'server_station_id', 'department_id', 'img_id', 'status', 'fix', 'clean', 'install']
         ];
     }
 
