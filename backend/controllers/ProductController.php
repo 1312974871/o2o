@@ -9,10 +9,10 @@ use yii\helpers\ArrayHelper;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use app\models\CommonType;
 
 class ProductController extends Controller
 {
-
     public function behaviors()
     {
         return [
@@ -32,7 +32,7 @@ class ProductController extends Controller
         ]);
         return $this->render('index', [
             'dataProvider' => $dataProvider,
-            'businessType' => ArrayHelper::map(\app\models\CommonType::getChildrenByTag("business_type"), "code", "name")
+            'businessType' => ArrayHelper::map(CommonType::getChildrenByTag("business_type"), "code", "name")
         ]);
     }
 

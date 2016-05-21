@@ -4,8 +4,6 @@ use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use yii\grid\GridView;
 use yii\widgets\Pjax;
-/* @var $this yii\web\View */
-/* @var $dataProvider yii\data\ActiveDataProvider */
 
 $this->title = Yii::t('app', 'Products');
 $this->params['breadcrumbs'][] = $this->title;
@@ -26,12 +24,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'name',
             'price',
             'curr_price',
-            [
-                'attribute'=>"business_type",
-                "value"=>function($model){
-                    return "";
-                }
-            ],
+            "business_type",
             // 'provider_id',
             // 'image',
             // 'img_id',
