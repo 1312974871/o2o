@@ -14,6 +14,7 @@ use yii\web\Response;
 class ServerStationController extends Controller
 {
 
+    public $layout = "cloud-admin";
     public function behaviors()
     {
         return [
@@ -56,6 +57,7 @@ class ServerStationController extends Controller
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
+            $model->status = $model::STATUS_ACTIVE;
             return $this->render('create', [
                 'model' => $model,
             ]);

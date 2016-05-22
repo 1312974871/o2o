@@ -55,7 +55,7 @@ use yii\widgets\ActiveForm;
     <?php ActiveForm::end(); ?>
 
 </div>
-<form action="<?= Yii::$app->urlManager->createUrl(["server-station/json","company_id"=>$model->company_id])?>" id="form_getServerStationes" method="post"><input type="hidden" name="company_id"></form>
+<form action="<?= Yii::$app->urlManager->createUrl(["server-station/json"])?>" id="form_getServerStationes" method="get"><input type="hidden" name="company_id" id="company_id" value="<?= $model->company_id ?>"></form>
 <?php
 
 $js = <<<JS
@@ -69,7 +69,8 @@ jQuery(function(){
    }); 
 });
 function getServerStationes(){
-    $.post($("#form_getServerStationes").attr("action"),null,function(res){
+    $("#company_id").val($("#user-company_id").val());
+    $.get($("#form_getServerStationes").attr("action"),$("#form_getServerStationes").serialize(),function(res){
         var str = "";
         $.each(res,function(i,v){
             str += '<option value='+i+'>'+v+'</option>';

@@ -13,6 +13,7 @@ use app\models\CommonType;
 
 class ProductController extends Controller
 {
+    public $layout = "cloud-admin";
     public function behaviors()
     {
         return [
@@ -49,6 +50,7 @@ class ProductController extends Controller
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
+            $model->status = $model::STATUS_ACTIVE;
             return $this->render('create', [
                 'model' => $model,
             ]);

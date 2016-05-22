@@ -12,6 +12,7 @@ use yii\filters\VerbFilter;
 class DepartmentController extends Controller
 {
 
+    public $layout = "cloud-admin";
     public function behaviors()
     {
         return [
@@ -44,10 +45,10 @@ class DepartmentController extends Controller
     public function actionCreate()
     {
         $model = new Department();
-
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
+            $model->status = $model::STATUS_ACTIVE;
             return $this->render('create', [
                 'model' => $model,
             ]);

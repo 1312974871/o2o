@@ -24,7 +24,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             'name',
             'code',
-            'upid',
+//            'upid',
             'sort',
             [
                 "attribute"=>"status",

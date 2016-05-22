@@ -53,6 +53,7 @@ return [
 
     'Modify Password'=>'修改密码',
     'Username' => '账户',
+    "Account"=>'账户',
     'Password' => '密码',
     'Newpassword'=>'新密码',
     'Repassword' => '确认密码',
@@ -124,6 +125,7 @@ return [
     'POINT_TYPE_RECOMMEND' => '推荐送积分',
 
     'Product' => '商品',
+    'Create Product' => '创建商品',
     'Products' => '商品',
     'Stock' => '库存',
     'Weight' => '重量',
@@ -295,9 +297,27 @@ return [
     "TYPE_NOWORKING"=>"非作业部",
 
     "Company"=>"机构",
+    "Create Company"=>"创建机构",
+    "Companies"=>"机构",
     "Server Station"=>"网点",
+    "Create Server Station"=>"创建网点",
+    "Server Stations"=>"网点",
+    "Common Types"=>"常用类型",
+    "Create Common Type"=>"创建常用类型",
     "Department"=>"部门",
+    "Create Department"=>"创建部门",
+    "Departments"=>"部门",
 
     "Worker No"=>"工号",
+    "Curr Price"=>"当前价格",
+    "Business Type"=>"业务类型",
+    "IDentifier"=>"标识符",
+    "Source"=>"来源",
+    "Provider"=>"渠道",
+    "Create Provider"=>"创建渠道",
+    "Providers"=>"渠道列表",
+
+    "Workers"=>"工人列表",
+    "Create Worker"=>"创建工人",
 
 ];

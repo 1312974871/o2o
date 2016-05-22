@@ -11,7 +11,7 @@ use yii\filters\VerbFilter;
 
 class UserController extends Controller
 {
-
+    public $layout = "cloud-admin";
     public function behaviors()
     {
         return [
@@ -48,6 +48,8 @@ class UserController extends Controller
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
+            $model->status = $model::STATUS_ACTIVE;
+            $model->type = $model::TYPE_WORKING;
             return $this->render('create', [
                 'model' => $model,
             ]);

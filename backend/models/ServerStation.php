@@ -35,7 +35,7 @@ class ServerStation extends \yii\db\ActiveRecord
     {
         return [
             [['company_id', 'zone_id', 'manager_id', 'created', 'status'], 'integer'],
-            [['latitude', 'longitude'], 'required'],
+            [['latitude', 'longitude', 'name'], 'required'],
             [['name', 'latitude', 'longitude'], 'string', 'max' => 64],
             [['address'], 'string', 'max' => 128],
         ];

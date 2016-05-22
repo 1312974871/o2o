@@ -31,6 +31,10 @@ class CommonType extends \yii\db\ActiveRecord
         ];
     }
 
+    public static function getArrayByUpid($upid){
+        return self::find()->where(["upid"=>$upid])->all();
+    }
+
     public static function getChildrenByTag($tag){
         $object = self::find()->andFilterWhere(["code"=>$tag])->one();
         return self::find()->andFilterWhere(["upid"=>$object->id,"status"=>self::STATUS_ACTIVE])->all();
@@ -50,8 +54,8 @@ class CommonType extends \yii\db\ActiveRecord
         return [
             'id' => Yii::t('app', 'ID'),
             'name' => Yii::t('app', 'Name'),
-            'code' => Yii::t('app', 'Code'),
-            'upid' => Yii::t('app', 'Upid'),
+            'code' => Yii::t('app', 'IDentifier'),
+            'upid' => Yii::t('app', 'Parent ID'),
             'sort' => Yii::t('app', 'Sort'),
             'status' => Yii::t('app', 'Status'),
         ];

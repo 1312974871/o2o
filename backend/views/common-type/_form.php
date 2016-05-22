@@ -2,6 +2,8 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use yii\helpers\ArrayHelper;
+use app\models\CommonType;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\CommonType */
@@ -16,7 +18,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'code')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'upid')->textInput() ?>
+    <?= $form->field($model, 'upid')->dropDownList(ArrayHelper::merge([0=>"根节点"],ArrayHelper::map(CommonType::getArrayByUpid(0),"id","name"))) ?>
 
     <?= $form->field($model, 'sort')->textInput() ?>
 

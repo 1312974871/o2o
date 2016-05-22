@@ -58,10 +58,40 @@ $this->params['breadcrumbs'][] = $this->title;
                 }
             ],
              'created_at:datetime',
-            // 'updated_at',
              'login_time:datetime',
 
-            ['class' => 'yii\grid\ActionColumn'],
+            [
+                'class' => 'yii\grid\ActionColumn',
+                'template' => '{change-password} {update} {delete}',
+                'buttons' => [
+                    'change-password' => function ($url, $model, $key) {
+                        $options = [
+                            'title' => Yii::t('app', 'Change Password'),
+                            'aria-label' => Yii::t('app', 'View'),
+                            'data-pjax' => '0',
+                        ];
+                        return Html::a('<span class="glyphicon glyphicon-eye-open"></span>', $url, $options);
+                    },
+                    'update' => function ($url, $model, $key) {
+                        $options = [
+                            'title' => Yii::t('app', 'Update'),
+                            'aria-label' => Yii::t('app', 'Update'),
+                            'data-pjax' => '0',
+                        ];
+                        return Html::a('<span class="glyphicon glyphicon-pencil"></span>', $url, $options);
+                    },
+                    'delete' => function ($url, $model, $key) {
+                        $options = [
+                            'title' => Yii::t('app', 'Delete'),
+                            'aria-label' => Yii::t('app', 'Delete'),
+                            'data-confirm' => Yii::t('app', 'Are you sure you want to delete this item?'),
+                            'data-method' => 'post',
+                            'data-pjax' => '0',
+                        ];
+                        return Html::a('<span class="glyphicon glyphicon-trash"></span>', $url, $options);
+                    },
+                ]
+            ],
         ],
     ]); ?>
 <?php Pjax::end(); ?></div>
